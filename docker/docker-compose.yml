@@ -1,0 +1,30 @@
+services:
+  postgres:
+    container_name: weather_postgres
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_USER: "test"
+      POSTGRES_DB: "weather_history"
+      POSTGRES_PASSWORD: "test"
+    ports:
+      - "5435:5432"
+    restart: unless-stopped
+    networks:
+      - weather-network
+
+  open_weather:
+    container_name: open_weather
+    environment:
+      SPRING_PROFILES_ACTIVE: "prod"
+    image: open_weather_build
+    ports:
+      - "8082:8087"
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    networks:
+      - weather-network
+
+networks:
+  weather-network:
+    driver: bridge

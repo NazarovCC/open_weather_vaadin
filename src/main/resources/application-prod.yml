@@ -1,0 +1,32 @@
+vaadin:
+  launch-browser: true
+server:
+  port: 8087
+spring:
+  application:
+    name: open_weather
+  datasource:
+    url: jdbc:postgresql://postgres:5432/weather_history
+    driver-class-name: org.postgresql.Driver
+    username: test
+    password: test
+
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://postgres:5432/weather_history
+    driver-class-name: org.postgresql.Driver
+#    default-schema: public
+#    schemas: public
+    user: test
+    password: test
+    baselineOnMigrate: true
+    baseline-version: 8.0
+openWeather:
+  url: https://api.openweathermap.org/data/2.5/weather?appId=345ab1b890cb24f466a9b54d6c0336dc&lang=ru&units=metric
+  appId: 345ab1b890cb24f466a9b54d6c0336dc
+  lang: ru
+  units: metric
+  readTimeout: 2000
+  connectTimeout: 500
+
+
