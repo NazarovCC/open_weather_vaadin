@@ -1,0 +1,26 @@
+.list-view .content {
+    display: flex;
+}
+
+.weather-history {
+    flex: 1;
+}
+
+.weather-grid {
+    border: none;
+}
+
+.list-view .divider {
+    width: 5px;
+    background-color: darkgray;
+}
+
+.list-view .main-content {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.main-content p {
+    font-weight: bold;
+    font-size: 1.2em;
+}
